@@ -9,11 +9,13 @@ RUN apt-get -y install nginx
 
 # Nginx configuration
 RUN mkdir -p /var/www/html
-ADD nginx.conf /etc/nginx/
+# ADD nginx.conf /etc/nginx/
 
 # Cleaning
 RUN apt-get clean
 
-EXPOSE 80,443
+# Expose nginx
+EXPOSE 80/tcp
+EXPOSE 443/tcp
 
 CMD ["nginx"]
