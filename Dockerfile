@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get -y install nginx
 
 # Nginx configuration
-RUN mkdir -p /var/www/html
+# RUN mkdir -p /var/www/html
 # ADD nginx.conf /etc/nginx/
 
 # Cleaning
@@ -18,4 +18,4 @@ RUN apt-get clean
 EXPOSE 80/tcp
 EXPOSE 443/tcp
 
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]
